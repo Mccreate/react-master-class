@@ -12,9 +12,6 @@ function App() {
     <Father as="header">
       <Input />
       <Input />
-      <Input />
-      <Input />
-      <Input />
     </Father>
   );
 }
