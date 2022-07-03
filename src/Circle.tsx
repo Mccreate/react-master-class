@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 interface ContainerProps {
@@ -15,15 +16,13 @@ const Container = styled.div<ContainerProps>`
 interface CircleProps {
     bgColor: string;
     borderColor?: string;
-    text?: string;
 }
 
-function Circle({ bgColor, borderColor, text = "default Text" }: CircleProps) {
-    return (
-        <Container bgColor={bgColor} borderColor={borderColor ?? "white"}>
-            {text}
-        </Container>
-    );
+function Circle({ bgColor, borderColor }: CircleProps) {
+    // useState<타입1 | 타입2>를 넣음으로써 두 가지 이상의 타입 사용가능.
+    // react는 useState의 초기값을 통해 타입 추론.
+    const [value, setValue] = useState<string | number>(0);
+    return <Container bgColor={bgColor} borderColor={borderColor ?? "white"}></Container>;
 }
 
 export default Circle;
